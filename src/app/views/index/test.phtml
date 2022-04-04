@@ -1,0 +1,18 @@
+<?php
+ $language = $this->request->get('locale')??'English';
+?>
+<form action='' method="GET" >
+<label for="role">Change language</label>
+    <select name="locale" onchange='submit();'>
+         <option value='<?php echo $language;?>'><?php echo $language;?></option>
+        <option value="English">English</option>
+        <option value="Hindi">हिन्दी</option>
+        <!-- <option value="en">English</option> -->
+    </select>
+</form><?php
+echo $this->locale->_('l1').'<br/>';
+echo $this->locale->_('l2').'<br/>';
+echo $this->locale->_('l3').'<br/>';
+echo $this->locale->_('l4').'<br/>';
+echo $this->locale->_('l5').'<br/>';
+echo $this->locale->_('l6').'<br/>';

@@ -1,0 +1,60 @@
+<?php
+if (isset($message)) {
+    echo $message;
+} ?>
+<h2>ADD PRODUCT</h2>
+
+<?php echo $this->tag->form(""); ?>
+
+<table>
+    <tr>
+        <td>
+            <label for="name">Name</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField("name"); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="description">Description</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textArea("description"); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="price">Price</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField("price"); ?>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <label for="tags">Tags</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField("tags"); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="stock">Stock</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField("stock"); ?>
+        </td>
+    </tr>
+</table>
+<p>
+    <?php echo $this->tag->submitButton("Add"); ?>
+</p>
+
+</form>

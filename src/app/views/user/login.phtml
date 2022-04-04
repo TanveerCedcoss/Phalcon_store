@@ -1,0 +1,32 @@
+<?php
+use Phalcon\Http\Response;
+
+if (isset($response)) {
+    $response = new Response();
+    $response->getContent();
+}
+
+?>
+<h2>Admin Login</h2>
+
+<?php echo $this->tag->form(""); ?>
+
+    <table>
+        <tr><td>
+            <label for="email">E-Mail</label>
+            </td><td>
+            <?php echo $this->tag->emailField("email"); ?>
+        </td></tr>
+
+        <tr><td>
+            <label for="password">Password</label>
+            </td><td>
+            <?php echo $this->tag->passwordField("password"); ?>
+        </td></tr>
+
+    </table>
+    <p>
+        <?php echo $this->tag->submitButton("Login"); ?>
+    </p>
+
+</form>

@@ -1,0 +1,52 @@
+<?php
+if (isset($message)) {
+    echo $message;
+}?>
+<h2>Add New User</h2><br/>
+
+<?php echo $this->tag->form(""); ?>
+
+<table>
+        <tr><td>
+        <label for="name">Name</label>
+        </td><td>
+        <?php echo $this->tag->textField("name"); ?>
+        </td></tr>
+
+        <tr><td>
+        <label for="email">E-Mail</label>
+        </td><td>
+        <?php echo $this->tag->emailField("email"); ?>
+        </td></tr>
+
+        <tr><td>
+        <label for="password">Password</label>
+        </td><td>
+        <?php echo $this->tag->passwordField("password"); ?>
+        </td></tr>
+
+        <tr><td>
+        <label for="selectedRole">Role</label>
+        </td><td>
+        <?php  echo $this->tag->select(
+        [
+            'selectedRole',
+            $allRoles,
+            'using'      => [
+                'role',
+                'role',
+            ],
+            'useEmpty'   => true,
+            'emptyText'  => 'choose a role',
+            'emptyValue' => '0',
+        ]
+    ); ?>
+        </td></tr>
+
+        </table>
+    <br/>
+    <p>
+        <?php echo $this->tag->submitButton("Register"); ?>
+    </p>
+
+</form>

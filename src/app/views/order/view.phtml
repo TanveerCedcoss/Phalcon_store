@@ -1,0 +1,37 @@
+<?php
+echo "<h1>All Orders</h1>";
+if ($orders->count() > 0) {
+?>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>Customer Name</th>
+                <th>Customer address</th>
+                <th>Zipcode</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="3">Product quantity: <?php echo $orders->count(); ?></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <?php foreach ($orders as $orders) { ?>
+                <tr>
+                    <td><?php echo $orders->id; ?></td>
+                    <td><?php echo $orders->customer_name; ?></td>
+                    <td><?php echo $orders->customer_address; ?></td>
+                    <td><?php echo $orders->zipcode; ?></td>
+                    <td><?php echo $orders->product; ?></td>
+                    <td><?php echo $orders->quantity; ?></td>
+                    <td><?php echo "<a href = 'delete/$orders->id'>delete</a>"; ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+<?php
+}

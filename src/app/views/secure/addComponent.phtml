@@ -1,0 +1,71 @@
+<?php
+if (isset($message)) {
+    echo $message;
+} ?>
+<h2>Add Components</h2>
+<br />
+
+<?php if (!isset($role)) {
+    echo $this->tag->form("");
+    echo '<label for="selectedRole">Role&nbsp;&nbsp;</label>';
+    echo $this->tag->select(
+        [
+            'selectedRole',
+            $allRoles,
+            'using'      => [
+                'role',
+                'role',
+            ],
+            'useEmpty'   => true,
+            'emptyText'  => 'choose a role',
+            'emptyValue' => '0',
+        ]
+    );
+    echo ' <br/>
+    <br/>';
+    echo $this->tag->submitButton(["Select Controllers", 'name' => 'roleCheck']);
+} ?>
+<?php if (isset($role) && !isset($methods)) {
+    echo $this->tag->form("");
+    echo '<label for="selectedRole">Role&nbsp;&nbsp;</label>';
+    echo $this->tag->textField(['value' => $role, 'id' => 'role', 'readonly' => true, 'class' => 'form-control']);
+    echo '<br/>';
+    echo ' <label for="component"><h4>Components:</h4></label>
+        <br/>';
+    foreach ($controllers as $key => $value) {
+        $keyNew = substr($key, 0, -10);
+        echo $this->tag->checkField(["name" => $keyNew, "id" => $key, 'value' => $key]);
+        echo "&nbsp;";
+        print_r($keyNew);
+        echo '<br/>';
+    }
+    echo '<br/><br/>';
+    echo $this->tag->submitButton(["Select Actions", 'name' => 'controllerCheck']);
+}
+?>
+<?php if (isset($role) && isset($methods)) {
+    echo $this->tag->form("");
+    echo '<label for="selectedRole">Role&nbsp;&nbsp;</label>';
+    echo $this->tag->textField(['value' => $role, 'id' => 'role', 'readonly' => true, 'class' => 'form-control']);
+    echo '<br/>';
+    echo ' <label for="component"><h5>Select Actions</h5></label>
+            <br/>';
+    foreach ($methods as $key => $value) {
+        echo '<br/>';
+        echo $this->tag->textField(['value' => $key, 'id' => 'controller', 'readonly' => true, 'class' => 'form-control']);
+        echo '<br/>';
+        foreach ($value as $k => $v) {
+            echo "&nbsp;";
+            $vNew = substr($v, 0, -6);
+            echo $this->tag->checkField(["name" => $key . '-' . $vNew, "id" => $vNew, 'value' => $vNew]);
+            echo "&nbsp;";
+            print_r($vNew);
+            echo '<br/>';
+        }
+    }
+    echo '<br/><br/>';
+    echo $this->tag->submitButton(["Allow access", 'name' => 'access']);
+}
+?>
+
+</form>

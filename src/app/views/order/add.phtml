@@ -1,0 +1,72 @@
+<?php
+if (isset($message)) {
+    echo $message;
+} ?>
+<h2>PLACE ORDER</h2>
+
+<?php echo $this->tag->form(""); ?>
+
+<table>
+    <tr>
+        <td>
+            <label for="customer_name">Customer Name</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField("customer_name"); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="customer_address">Customer address</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textArea("customer_address"); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="zipcode">zipcode</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField("zipcode"); ?>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <label for="product">product</label>
+        </td>
+        <td>
+            <?php echo $this->tag->select(
+                [
+                    'product',
+                    $products,
+                    'using'      => [
+                        'name',
+                        'name',
+                    ],
+                    'useEmpty'   => true,
+                    'emptyText'  => 'Choose a product',
+                    'emptyValue' => '0',
+                ]
+            ); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="quantity">quantity</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField("quantity"); ?>
+        </td>
+    </tr>
+</table>
+<p>
+    <?php echo $this->tag->submitButton("Place Order"); ?>
+</p>
+
+</form>

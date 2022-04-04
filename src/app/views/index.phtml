@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phalcon Tutorial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active mr-1">
+    <?php
+    echo $this->tag->linkTo(
+        'product/add',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("Add Product").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+    <?php
+    echo $this->tag->linkTo(
+        'product/view',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("View all products").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+    <?php
+    echo $this->tag->linkTo(
+        'order/add',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("Add Orders").'</button>'
+    );
+   ?>
+   </li>
+   <li class="nav-item active mr-1">
+   <?php
+    echo $this->tag->linkTo(
+        'order/view',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("View all Orders").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+   <?php
+    echo $this->tag->linkTo(
+        'setting/save',
+        ' <button class="btn btn-outline-success my-2 my-sm-0 py-auto" type="submit">'.$this->locale->_("Settings").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+   <?php
+    echo $this->tag->linkTo(
+        'secure/addRole',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("Add New Role").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+   <?php
+    echo $this->tag->linkTo(
+        'secure/addComponent',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("Add New Components").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+   <?php
+    echo $this->tag->linkTo(
+        'user/addUser',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("Add New User").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+   <?php
+    echo $this->tag->linkTo(
+        'index/test',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("Translate feature").'</button>'
+    );
+   ?>
+    </li>
+    <li class="nav-item active mr-1">
+   <?php
+   if ($this->session->has('admin')) {
+    echo $this->tag->linkTo(
+        'user/logout',
+        ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$this->locale->_("Signout").'</button>'
+    );
+    }
+   
+   ?>
+    </li>
+    <li class="nav-item">
+   
+    </li>
+  </ul>
+</div>
+</nav>
+<?php echo $this->getContent(); ?>
+</div>
+</body>
+</html>

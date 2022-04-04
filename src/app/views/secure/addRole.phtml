@@ -1,0 +1,14 @@
+<?php
+if (isset($message)) {
+    echo $message;
+} ?>
+<h2>Add New Role</h2>
+
+<?php echo $this->tag->form(""); ?>
+
+<label for="role">Role</label>
+
+<?php echo $this->tag->textField("roleAdd"); ?>
+<?php echo $this->tag->submitButton("Add"); ?>
+
+</form>

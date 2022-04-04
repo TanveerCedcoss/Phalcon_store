@@ -1,0 +1,69 @@
+<?php
+if (isset($message)) {
+    echo $message;
+} ?>
+
+<h2>Settings</h2>
+
+<?php echo $this->tag->form("setting/save"); ?>
+
+<table>
+    <tr>
+        <td>
+            <label for="title_opti">Title Optimization</label>
+        </td>
+        <td>
+            <?php
+            $options = [
+                1 => 'without tags',
+                2 => 'with tags',
+            ];
+
+            echo $this->tag->select(
+                [
+                    'title_option',
+                    $options,
+                    'using'      => [
+                        'name',
+                        'name',
+                    ],
+                    'value' => $values->title_option
+                ]
+            ); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="default_price">Default price</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField(["name" => "default_price", 'value' => $values->default_price,  "id" => "default_price"]); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="default_stock">Default stock</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField(["name" => "default_stock", 'value' => $values->default_stock,  "id" => "default_stock"]); ?>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <label for="default_zipcode">Default zipcode</label>
+        </td>
+        <td>
+            <?php echo $this->tag->textField(["name" => "default_zipcode", 'value' => $values->default_zipcode,  "id" => "default_zipcode"]); ?>
+        </td>
+    </tr>
+
+</table>
+<p>
+    <?php echo $this->tag->submitButton("Save settings"); ?>
+</p>
+
+</form>
