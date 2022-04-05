@@ -17,4 +17,6 @@ $messages = [
     'Add New Components' => 'नए घटक जोड़ें',
     'Add New User' => 'नया उपयोगकर्ता जोड़ें',
     'Translate feature' => 'अनुवाद सुविधा',
+    'View all user' => 'सभी उपयोगकर्ता देखें',
+    'Sign out' => 'साइन आउट'
 ];

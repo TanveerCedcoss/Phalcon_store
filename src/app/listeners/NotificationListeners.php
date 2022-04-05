@@ -76,18 +76,19 @@ class NotificationListeners extends Injectable
      */
     public function beforeHandleRequest(Event $event, \Phalcon\Mvc\Application $application)
     {
-        if ($this->session->has('admin')) {
-            return;
-        }
-        if ($this->router->getControllerName() == 'user' && $this->router->getActionName() == 'login') {
-            return;
-        }
         $aclFile = APP_PATH . '/security/acl.cache';
         if (true === is_file($aclFile)) {
             $acl = unserialize(
                 file_get_contents($aclFile)
             );
 
+
+            if ($this->session->has('admin')) {
+                return;
+            }
+            if ($this->router->getControllerName() == 'user' && $this->router->getActionName() == 'login') {
+                return;
+            }
             $bearer = $application->request->get('bearer')??'';
             if ($bearer) {
                 try {

@@ -17,5 +17,7 @@ $messages = [
     'Add New Components' => 'Add New Components',
     'Add New User' => 'Add New User',
     'Translate feature' => 'Translate feature',
+    'View all user' => 'View all user',
+    'Sign out' => 'Sign out'
 
 ];

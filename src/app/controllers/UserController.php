@@ -152,4 +152,16 @@ class UserController extends Controller
         $this->session->remove('admin');
         $this->response->redirect('user/login');
     }
+
+    public function viewAction()
+    {
+        $this->view->users = Users::find();
+    }
+
+    public function deleteAction($id)
+    {
+        $delUser = Users::findFirst($id);
+        $delUser->delete();
+        $this->response->redirect('user/view');
+    }
 }
