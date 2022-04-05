@@ -153,11 +153,22 @@ class UserController extends Controller
         $this->response->redirect('user/login');
     }
 
+      /**
+     * viewAction get and pass all the users to the View of this class
+     *
+     * @return void
+     */
     public function viewAction()
     {
         $this->view->users = Users::find();
     }
 
+    /**
+     * deleteAction gets the ID of the user as param and then find the user in db based on that
+     *  and finally delete it from the the database and redirects to view of this controller
+     * @param [num] $id
+     * @return void
+     */
     public function deleteAction($id)
     {
         $delUser = Users::findFirst($id);

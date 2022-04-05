@@ -92,6 +92,12 @@ class ProductController extends Controller
         $this->view->products = Products::find();
     }
 
+    /**
+     * deleteAction gets the ID of the product as param and then find the product in db based on that
+     *  and finally delete it from the the database and redirects to view of this controller
+     * @param [num] $id
+     * @return void
+     */
     public function deleteAction($id)
     {
         $delPro = Products::findFirst($id);

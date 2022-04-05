@@ -96,6 +96,12 @@ class OrderController extends Controller
         $this->view->orders = Orders::find();
     }
 
+    /**
+     * deleteAction gets the ID of the order as param and then find the order in db based on that
+     *  and finally delete it from the the database and redirects to view of this controller
+     * @param [num] $id
+     * @return void
+     */
     public function deleteAction($id)
     {
         $delOrder = Orders::findFirst($id);
